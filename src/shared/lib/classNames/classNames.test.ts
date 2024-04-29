@@ -1,4 +1,4 @@
-import { classNames } from './classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 describe('classNames', () => {
     test('with only first param', () => {
@@ -11,16 +11,6 @@ describe('classNames', () => {
             .toBe(expected);
     });
 
-    test('with only first param', () => {
-        expect(classNames('someClass')).toBe('someClass');
-    });
-
-    test('test', () => {
-        const expected = 'sdf';
-        expect(classNames('someClass', {}, ['class1', 'class2']))
-            .toBe(expected);
-    });
- 
     test('with mods', () => {
         const expected = 'someClass class1 class2 hovered scrollable';
         expect(classNames(
@@ -40,7 +30,7 @@ describe('classNames', () => {
     });
 
     test('with mods undefined', () => {
-        const expected = 'someClass class1 class2 hoveredc';
+        const expected = 'someClass class1 class2 hovered';
         expect(classNames(
             'someClass',
             { hovered: true, scrollable: undefined },
